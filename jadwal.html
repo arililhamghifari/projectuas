@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadwal Event - EventKita</title>
+    <style>
+        /* CSS Reset & Variabel (Konsisten dengan index.html) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --secondary-color: #64748b;
+            --text-dark: #1e293b;
+            --text-light: #f8fafc;
+            --bg-light: #ffffff;
+            --bg-alt: #f1f5f9;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        /* Navigasi */
+        header {
+            background-color: var(--bg-light);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-login {
+            padding: 0.5rem 1.5rem;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color) !important;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .btn-login:hover {
+            background-color: var(--primary-color);
+            color: white !important;
+        }
+
+        /* Header Jadwal */
+        .schedule-header {
+            padding: 150px 5% 50px;
+            background-color: var(--bg-alt);
+            text-align: center;
+        }
+
+        .schedule-header h1 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        /* Container Jadwal */
+        .schedule-container {
+            padding: 50px 5%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Styling Tabel */
+        .table-wrapper {
+            overflow-x: auto; /* Agar tabel bisa di-scroll pada layar kecil */
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 20px;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 15px 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background-color: #f8fafc;
+        }
+
+        .time {
+            font-weight: bold;
+            color: var(--primary-color);
+            white-space: nowrap;
+        }
+
+        .speaker {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background-color: #dbeafe;
+            color: var(--primary-color);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--text-light);
+            padding: 50px 5% 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            border-top: 1px solid #334155;
+            padding-top: 20px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links a:not(.btn-login) {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigasi -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">EventKita</a>
+            <div class="nav-links">
+                <a href="index.html">Beranda</a>
+                <a href="jadwal.html" style="color: var(--primary-color);">Jadwal</a>
+                <a href="login.php" class="btn-login">Masuk</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Header Jadwal -->
+    <section class="schedule-header">
+        <h1>Agenda Acara</h1>
+        <p>Sabtu, 24 Agustus 2024 - Gedung Inovasi Digital</p>
+    </section>
+
+    <!-- Content Jadwal -->
+    <main class="schedule-container">
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Waktu</th>
+                        <th>Sesi & Aktivitas</th>
+                        <th>Pembicara</th>
+                        <th>Kategori</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="time">08:00 - 09:00</td>
+                        <td>Registrasi & Coffee Morning</td>
+                        <td>-</td>
+                        <td><span class="tag">Umum</span></td>
+                    </tr>
+                    <tr>
+                        <td class="time">09:00 - 10:00</td>
+                        <td>Keynote: Masa Depan AI di Indonesia</td>
+                        <td>Dr. Budi Santoso</td>
+                        <td><span class="tag">Teknologi</span></td>
+                    </tr>
+                    <tr>
+                        <td class="time">10:00 - 12:00</td>
+                        <td>Workshop: Membangun Aplikasi Skala Besar</td>
+                        <td>Andi Wijaya (Senior Dev)</td>
+                        <td><span class="tag">Workshop</span></td>
+                    </tr>
+                    <tr>
+                        <td class="time">12:00 - 13:00</td>
+                        <td>Istirahat & Makan Siang</td>
+                        <td>-</td>
+                        <td><span class="tag">Istirahat</span></td>
+                    </tr>
+                    <tr>
+                        <td class="time">13:00 - 15:00</td>
+                        <td>Panel Diskusi: Startup & Pendanaan</td>
+                        <td>Tim Venture Capital</td>
+                        <td><span class="tag">Bisnis</span></td>
+                    </tr>
+                    <tr>
+                        <td class="time">15:00 - 16:00</td>
+                        <td>Penutupan & Networking</td>
+                        <td>Panitia EventKita</td>
+                        <td><span class="tag">Umum</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="copyright">
+            <p>&copy; 2024 EventKita. Seluruh hak cipta dilindungi.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
