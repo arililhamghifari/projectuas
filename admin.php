@@ -31,6 +31,16 @@ if (!$result) {
         padding-top: 90px;
     }
 
+    :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --secondary-color: #64748b;
+            --text-dark: #1e293b;
+            --text-light: #f8fafc;
+            --bg-light: #ffffff;
+            --bg-alt: #f1f5f9;
+        }
+
     header {
             background-color: var(--bg-light);
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -128,6 +138,7 @@ if (!$result) {
                         <th>No HP</th>
                         <th>Event</th>
                         <th>Alasan</th>
+                        <th>Foto</th>
                         <th>Tanggal</th>
                         <th>Aksi</th>
                     </tr>
@@ -139,8 +150,15 @@ if (!$result) {
                         <td><?= $row['nama'] ?></td>
                         <td><?= $row['email'] ?></td>
                         <td><?= $row['no_hp'] ?></td>
-                        <td><?= $row['event'] ?></td>
+                        <td><?= $row['pilihan_event'] ?></td>
                         <td><?= $row['alasan'] ?></td>
+                        <td>
+                            <?php if (!empty($row['foto'])) { ?>
+                                <img src="uploads/<?= htmlspecialchars($row['foto']); ?>" width="60">
+                            <?php } else { ?>
+                                -
+                            <?php } ?>
+                        </td>
                         <td><?= $row['tanggal_daftar'] ?></td>
                         <td>
                             <a href="edit.php?id=<?= $row['id']; ?>" class="btn btn-warning btn-sm">

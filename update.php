@@ -11,14 +11,14 @@ $id     = $_POST['id'];
 $nama   = htmlspecialchars($_POST['nama']);
 $email  = htmlspecialchars($_POST['email']);
 $no_hp  = htmlspecialchars($_POST['no_hp']);
-$event  = htmlspecialchars($_POST['event']);
+$pilihan_event  = htmlspecialchars($_POST['event']);
 $alasan = htmlspecialchars($_POST['alasan']);
 
 $query = "UPDATE peserta_event SET
             nama='$nama',
             email='$email',
             no_hp='$no_hp',
-            event='$event',
+            pilihan_event='$event',
             alasan='$alasan'
           WHERE id='$id'";
 

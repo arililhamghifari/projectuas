@@ -11,6 +11,16 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
     <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --secondary-color: #64748b;
+            --text-dark: #1e293b;
+            --text-light: #f8fafc;
+            --bg-light: #ffffff;
+            --bg-alt: #f1f5f9;
+        }
+
         header {
             background-color: var(--bg-light);
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -78,59 +88,55 @@
             </div>
         </nav>
     </header>
-<!-- FORM -->
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card shadow">
-                <div class="card-body">
-
-                    <h4 class="text-center mb-4">Form Pendaftaran Event</h4>
-
-                    <form action="proses_daftar.php" method="POST" id="formDaftar">
-
-                        <div class="mb-3">
-                            <label class="form-label">Nama Lengkap</label>
-                            <input type="text" name="nama" id="nama" class="form-control" placeholder="Masukkan nama lengkap">
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label">Email</label>
-                            <input type="email" name="email" id="email" class="form-control" placeholder="contoh@email.com">
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label">No Handphone</label>
-                            <input type="text" name="no_hp" id="no_hp" class="form-control" placeholder="08xxxxxxxxxx">
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label">Pilih Event</label>
-                            <select name="event" id="event" class="form-select">
-                                <option value="">-- Pilih Event --</option>
-                                <option value="Seminar Web">Seminar Web</option>
-                                <option value="Workshop UI/UX">Workshop UI/UX</option>
-                                <option value="Lomba Coding">Lomba Coding</option>
-                            </select>
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label">Alasan Mengikuti Event</label>
-                            <textarea name="alasan" id="alasan" class="form-control" rows="4"></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary w-100">
-                            Daftar
-                        </button>
-
-                    </form>
-
+    <!-- FORM -->
+    <div class="container" style="margin-top: 120px;">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h4 class="text-center mb-4">Form Pendaftaran Event</h4>
+                        <form action="proses_daftar.php" method="POST" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label class="form-label">Nama Lengkap</label>
+                                <input type="text" name="nama" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="email" name="email" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">No Handphone</label>
+                                <input type="text" name="no_hp" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Pilih Event</label>
+                                <select name="pilihan_event" class="form-select">
+                                    <option value="">-- Pilih Event --</option>
+                                    <option value="Seminar Web">Seminar Web</option>
+                                    <option value="Workshop UI/UX">Workshop UI/UX</option>
+                                    <option value="Lomba Coding">Lomba Coding</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Alasan Mengikuti Event</label>
+                                <textarea name="alasan" class="form-control"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Upload Foto</label>
+                                <input type="file" name="foto" class="form-control" accept="image/*">
+                                <small class="text-muted">
+                                    Format JPG / PNG, maksimal 2MB
+                                </small>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">
+                                Daftar
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
 <!-- JS -->
 <script src="assets/js/validasi.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

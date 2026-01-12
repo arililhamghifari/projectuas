@@ -6,6 +6,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <style>
+    :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --secondary-color: #64748b;
+            --text-dark: #1e293b;
+            --text-light: #f8fafc;
+            --bg-light: #ffffff;
+            --bg-alt: #f1f5f9;
+        }
+
     header {
             background-color: var(--bg-light);
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);

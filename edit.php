@@ -54,10 +54,10 @@ $data = mysqli_fetch_assoc($result);
 
                         <div class="mb-3">
                             <label class="form-label">Event</label>
-                            <select name="event" class="form-select">
-                                <option value="Seminar Web" <?= $data['event']=="Seminar Web"?'selected':''; ?>>Seminar Web</option>
-                                <option value="Workshop UI/UX" <?= $data['event']=="Workshop UI/UX"?'selected':''; ?>>Workshop UI/UX</option>
-                                <option value="Lomba Coding" <?= $data['event']=="Lomba Coding"?'selected':''; ?>>Lomba Coding</option>
+                            <select name="pilihan_event" class="form-select">
+                                <option value="Seminar Web" <?= $data['pilihanevent']=="Seminar Web"?'selected':''; ?>>Seminar Web</option>
+                                <option value="Workshop UI/UX" <?= $data['pilihan_event']=="Workshop UI/UX"?'selected':''; ?>>Workshop UI/UX</option>
+                                <option value="Lomba Coding" <?= $data['pilihan_event']=="Lomba Coding"?'selected':''; ?>>Lomba Coding</option>
                             </select>
                         </div>
 

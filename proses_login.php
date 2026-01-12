@@ -3,22 +3,18 @@ session_start();
 include "koneksi.php";
 
 $username = $_POST['username'];
-$password = md5($_POST['password']);
+$password = $_POST['password'];
 
-$query = "SELECT * FROM admin 
-          WHERE username='$username' 
-          AND password='$password'";
+$query = mysqli_query($conn, "SELECT * FROM admin WHERE username='$username'");
+$data = mysqli_fetch_assoc($query);
 
-$result = mysqli_query($conn, $query);
-
-if (mysqli_num_rows($result) > 0) {
+if ($data && password_verify($password, $data['password'])) {
     $_SESSION['login'] = true;
-    $_SESSION['username'] = $username;
+    $_SESSION['username'] = $data['username'];
     header("Location: admin.php");
 } else {
     echo "<script>
-            alert('Username atau Password salah!');
-            window.location='login.php';
-          </script>";
+        alert('Login gagal!');
+        window.location='login.php';
+    </script>";
 }
-?>
